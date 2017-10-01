@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="../FormularioComplejo" method="post">
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label for="usuario">Usuario<input type="text" id="usuario" name="usuario"></label>
+                <br><br>
+                <label for="correo">Correo<input type="text" id="correo" name="correo"></label>
+                <br><br>
+                <label for="edad">Edad
+                    <select name="edad" id="edad">
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22" selected="selected">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">20</option>                        
+                    </select></label>
+             </fieldset>
+            <fieldset>
+                <legend>Otros datos</legend>
+                <p>Estado civil
+                    <label for="soltero"><input type="radio" name="estadoCivil" id="soltero" value="Soltero/a" checked="checked">Soltero/a</label>
+                <label for="casado"><input type="radio" name="estadoCivil" id="casado" value="Casado/a">Casado/a</label>
+                <label for="viudo"><input type="radio" name="estadoCivil" id="viudo" value="Viudo/a">Viudo/a</label>
+                <label for="divorciado"><input type="radio" name="estadoCivil" id="divorciado" value="Divorciado/a">Divorciado/a</label>
+                </p>
+                <p><label for="aficciones">Aficciones (uno o varios, CTRL):
+                    <br>
+                    <select multiple="multiple" name="aficciones" size="6" id="aficciones">
+                        <option value="Deporte">Deporte</option>
+                        <option value="Música">Música</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Viajes" selected="">Viajes</option>
+                        <option value="Tiendas">Tiendas</option>
+                        <option value="Juegos">Juegos</option>
+                    </select>
+                    </label>
+                </p>
+                <p><label for="comentario">Comentarios:
+                    <br><textarea name="comentario" id="comentario">Pon tu comentario...</textarea>
+                    </label>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Medios Tecnológicos</legend>
+                <p>¿Dispones de internet?: 
+                    <label for="inetSi"><input type="radio" name="internet" value="Si" checked="checked" id="inetSi">Si</label>
+                    <label for="inetNo"><input type="radio" name="internet" value="No" id="inetNo">No</label>
+                </p>
+                <p>
+                    <select name="SO" size="4">
+                        <option value="Linux">Linux</option>
+                        <option value="Windows" selected="">Windows</option>
+                        <option value="Macintosh">Macintosh</option>
+                        <option value="Solaris">Solaris</option>
+                    </select>
+                </p>
+                
+            </fieldset>
+            <input name="digito" value="23" hidden="hidden">
+            <input type="submit" name="enviar" value="Enviar">
+            <input type="reset" name="limpiar" value="Limpiar">
+            
+        </form>
+    </body>
+</html>
