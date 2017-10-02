@@ -135,7 +135,7 @@ public class Registro extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         boolean correcto = true;
         boolean errorN = false, errorU = false, errorP = false , errorF = false;
@@ -166,7 +166,16 @@ public class Registro extends HttpServlet {
                     out.println("<body>");
                     out.println("<div id='cabecera'>");
                     out.println("<h1>Errores en el registro</h1>");
-                    out.println("<form action='registro' method='post'>");                                   
+                    out.println("<form action='registro' method='post'>");
+                     Map<String,String[]> parametros = request.getParameterMap();
+                        Set names = parametros.keySet();
+                        Iterator it = names.iterator();
+                        while (it.hasNext()) {
+                            String nombre = (String) it.next();
+                            if (!nombre.startsWith("Env")) {
+                            out.println("<input type='hidden' name='" + nombre + "' value='" + request.getParameter(nombre) + "'></input>");
+                            }
+                           }
                     out.println("<input type='submit' name='Volver' value='Volver'></input>");
                     out.println("</form>");
                     out.println("</div>");
