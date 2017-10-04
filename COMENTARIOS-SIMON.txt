@@ -1,0 +1,16 @@
+EJECUCIÓN
+Cuando vuelves al formulario después comprobar que hay errores no chequeas las preferencias que el usuario eligió
+
+PROYECTO
+Todo correcto
+
+FICHERO REGISTRO.HTML
+Tienes que utilizar menos espacios (&nbsp;) y más div
+
+SERVLET
+Tienes código repetido
+Gran cantidad de líneas de código que se podía reducir considerablemente.
+Tienes algunos comentarios en el código del servlet a modo de retroalimentación
+No comentas el código dentro de los métodos
+
+CALIFICACIÓN DEL EJERCICIO -> 6.50

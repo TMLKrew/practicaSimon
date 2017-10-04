@@ -40,6 +40,7 @@ public class Registro extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Salida</title>");
+// ES CONVENIENTE UTILIZAR request.getContextPath PARA ENCONTRAR LOS RECURSOS
         out.println("<link rel=\"stylesheet\" type=\"text/css\" href='css/estilo.css' media=\"screen\" />");
         out.println("<meta charset='UTF-8'>");
         out.println("</head>");
@@ -55,6 +56,7 @@ public class Registro extends HttpServlet {
                     /**
                      * Utilizamos un Switch para escribir el nombre del mes que corresponde con su número.
                      */
+// AYUDANDONOS DE UN ARRAY ES MUCHO MAS CORTO Y PROFESIONAL
                     switch(request.getParameter("mes")){
                         case "1": out.print("Enero");
                             break;                         
@@ -141,6 +143,7 @@ public class Registro extends HttpServlet {
         boolean errorN = false, errorU = false, errorP = false , errorF = false;
         int[] diasMes= {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         if (null != request.getParameter("Enviar")){
+// LA COMPROBACIÓN DE ERRORES LA HACES EN DOS SITIOS DIFERENTES, ES DECIR REPITES CÓDIGO
             if ("".equals(request.getParameter("Nombre"))){
                 errorN=true;
             }
@@ -238,6 +241,7 @@ public class Registro extends HttpServlet {
                                  out.println(">Mujer</label>");
                  out.println("</p>");
                  out.println("<p>");
+// MUCHISIMO CÓDIGO 
                      out.println("<label for='fecha'>Fecha de nacimiento: &nbsp;</label>");
                      out.println("<select name='dia' id='fecha'>");
                          out.println("<option value='1' ");
@@ -417,6 +421,7 @@ public class Registro extends HttpServlet {
                     
                      out.println("</select>&nbsp;/");
                      out.println("<select name='ano'>");
+// ESTO LO PODIAS HABER PUESTO EN LOS DIAS Y LOS MESES
                        for (int i=1950; i<=2017; i++) {
 			out.println("<option value='"+i+"'");
 			if(i==Integer.parseInt(request.getParameter("ano")))                            
