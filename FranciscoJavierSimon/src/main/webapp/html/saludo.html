@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Saludos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Saludos</h1>
+        <form action="../jsp/saludo.jsp">
+            <label for="nombre">Introduzca su nombre </label><input type="text" name="nombre" id="nombre"/>
+            <label for="hombre"><input type="radio" name="sexo" value="hombre" id="hombre" checked="checked">Hombre</label>
+            <label for="mujer"><input type="radio" name="sexo" value="mujer" id="hombre">Mujer</label>
+            <input type="submit" name="Enviar" value="Enviar"/>
+        </form>
+    </body>
+</html>
