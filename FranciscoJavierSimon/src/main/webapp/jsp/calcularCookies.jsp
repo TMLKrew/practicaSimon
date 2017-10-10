@@ -10,8 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="../css/estilo.css">
     </head>
     <body>
+        <div id="cabecera">
         <%-- La aplicacion crea un objeto Cookie y un array de Objetos Cookie, en el array utiliza el metodo getCookies()
         para comprobar todos los objetos Cookies en el localhost, comprueba si existe nuestro objeto Cookie contador si
         existe le asigna a la variable "valor" el valor del objeto Cookie con el metodo getValue sino inicializa el objeto
@@ -56,6 +58,6 @@
           <input type="submit" name="Eliminar" value="Eliminar">
           <a href="../index.html"><input type="button" name="Menu" value="Menú inicial"></a>
         </form>
-
+        </div>
     </body>
 </html>

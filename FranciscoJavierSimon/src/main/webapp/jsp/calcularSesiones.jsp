@@ -10,8 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="../css/estilo.css">
     </head>
     <body>
+        <div id="cabecera">
         <%-- La aplicacion crea un objeto HttpSession y se instancia mediante el metodo getSession().
         Comprueba si se pulsa el input "Eliminar". Si se ha pulsado elimina el atributo "contador" sino comprueba si
         el atributo "contador" no es nulo, entonces le asigna a la variable "valor" el valor del atributo contador, 
@@ -22,7 +24,7 @@
         esto ocurre cuando se pulsa en el input "Eliminar".
         --%>
     <% 
-    HttpSession s = request.getSession(); 
+    HttpSession s = request.getSession(true); 
     int valor = 0;
     if (request.getParameter("Eliminar") != null){
         s.removeAttribute("contador");
@@ -31,7 +33,7 @@
             valor = (Integer)s.getAttribute("contador");
         }
         valor++;
-        s.setAttribute("contador", valor); 
+        s.setAttribute("contador", new Integer(valor)); 
     }
     if (s.getAttribute("contador") != null){
         if (s.getAttribute("contador").equals(1)){
@@ -53,9 +55,12 @@
     } else {
     %>
     <form action="calcularSesiones.jsp">
+        <h1>La sesión ha expirado</h1>
         <input type="submit" name="Recargar" value="Recargar">
     </form>
     <%
         }
     %>
+        </div>
+    </body>
 </html>
