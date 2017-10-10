@@ -35,8 +35,8 @@
             <%= resultado %>
         </h1>
         <form action="calculadora.jsp">
-        <label for="parametro01">Introduzca el primer parametro <input type="number" name="operador01" id="parametro01"/></label>
-        <label for="parametro02">Introduzca el segundo parametro <input type="number" name="operador02" id="parametro02"/></label>
+        <label for="parametro01">Introduzca el primer parametro <input type="text" name="operador01" id="parametro01"/></label>
+        <label for="parametro02">Introduzca el segundo parametro <input type="text" name="operador02" id="parametro02"/></label>
         <p>
         <label for="suma"><input type="radio" name="accion" value="suma" id="suma" checked="checked ">Suma</label>
         <br>
