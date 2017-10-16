@@ -4,3 +4,4 @@
 10/10/2017 - 11:35 Añadidas nuevas funcionalidades: Calcular visitas mediante Cookies y Calcular visitas mediante Session
 10/10/2017 - 19:43 Añadida nueva funcionalidad Proceso de identificación
 10/10/2017 . 20:00 Añadido .war
+16/10/2017 - 9:00 Añadida la funcionalidad Carrito de la compra
