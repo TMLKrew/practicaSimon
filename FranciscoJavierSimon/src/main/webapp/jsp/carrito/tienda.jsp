@@ -61,7 +61,7 @@
                     mensaje="Añadido a la cesta "+ Integer.parseInt(request.getParameter("cantidad")) + " unidades del libro "+request.getParameter("libros");
                     sesion.setAttribute("carrito", carrito);
                 }
-            }
+            } // EN TODAS LAS SALIDAS HACES CARRITO.ADD. MEJOR HACERLO FUERA DE ESTE IF
         }else
         if (request.getParameter("fin") != null ){
             pintar=false;
@@ -84,6 +84,7 @@
             <h1 id="cabecera">Libros On-Line </h1>
             <img id="logo" src="../../images/carrito.jpg">
             <p><em><%= error %></em></p>
+            <%-- EN EL MENSAJE HAY QUE PONER LOS LIBROS AÑADIDOS EN EL MOMENTO Y NO LOS QUE LLEVAS EN TOTAL --%>
             <p><%= mensaje %></p>
             <% if (pintar==true){ %>
             <form action="tienda.jsp" method="post">                
@@ -120,6 +121,7 @@
             </tr>
             <% } %>
             </table>
+            <%-- MEJOR UTILIZAR getContextPath --%>
             <p><a href="../../index.html">Gracias por confiar en nosotros</a></p>
             <% 
             }

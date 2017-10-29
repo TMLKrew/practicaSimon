@@ -54,13 +54,19 @@
         <h2>Último acceso : <%= fecha.getValue() %></h2>
         <form action="loginIN.jsp" method="post">
             <p><em><%= cadenaError %></em></p>
+            <%-- FALTA CERRAR EL INPUT 
+                CONSIGUE PRIMERO EL VALOR DE LA VARIABLE Y AQUI LO METES DONDE CORRESPONDA IGUAL QUE HACES CON cadenaError
+            --%>
+            
         <p>Usuario <input type="text" name="usuario"
             <% String cadenaValor = (user != null ? "value='"+user.getValue()+"'": ""); %>
-            <%= cadenaValor %>
+            <%= cadenaValor %>>
           </p>
-        <p>Contraseña <input type="password" name="pass"</p>
+          <%-- FALTA CERRAR EL INPUT --%>
+          <p>Contraseña <input type="password" name="pass"></p>
         <p><input type="checkbox" name="recordar" value="recordar"> Recordar contraseña</p>
         <input type="submit" name="enviar" value="Enviar">
+        <%-- MEJOR CON EL EVENTO ONCLICK DE LA ETIQUETA INPUT --%>
         <a href="../../index.html"><input type="button" name="menu" value="Menú inicial"></a>
         </form>
         </div>
