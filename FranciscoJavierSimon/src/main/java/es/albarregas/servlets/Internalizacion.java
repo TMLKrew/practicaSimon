@@ -6,12 +6,16 @@
 package es.albarregas.servlets;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,7 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Internalizacion", urlPatterns = {"/internalizacion"})
 public class Internalizacion extends HttpServlet {
-     /**
+
+    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -44,10 +49,18 @@ public class Internalizacion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sesion = request.getSession();
         Date fecha = new Date();
-        request.setAttribute("fecha", fecha);
-        request.getRequestDispatcher("el/internalizacion.jsp").forward(request, response);
-        
+        sesion.setAttribute("fecha", fecha);
+        Locale paises[] = SimpleDateFormat.getAvailableLocales();
+        ArrayList<Locale> paisesNew = new ArrayList();
+        for (int i = 0; i < paises.length; i++) {
+            if (!paises[i].getDisplayCountry().equals("")) {
+                paisesNew.add(paises[i]);
+            }
+        }
+        sesion.setAttribute("paises", paisesNew);
+        request.getRequestDispatcher("el/internalizacion/internalizacion.jsp").forward(request, response);
     }
 
     /**
