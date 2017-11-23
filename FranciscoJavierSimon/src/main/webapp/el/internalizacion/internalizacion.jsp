@@ -18,7 +18,7 @@
             <input type="hidden" name="fecha" value="${fecha}">
             <select name="pais">
                 <c:forEach var="list" items="${paises}">
-                    <option value='${list.language}_${list.country}/${list.displayCountry}'>${list.displayCountry}</option>        
+                    <option value='${list.key}'>${list.value}</option>        
                 </c:forEach>
             </select>
             <input type="submit" name="enviar" value="Enviar">

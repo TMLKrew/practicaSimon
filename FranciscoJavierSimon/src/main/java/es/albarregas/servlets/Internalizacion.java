@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TreeMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,13 +54,13 @@ public class Internalizacion extends HttpServlet {
         Date fecha = new Date();
         sesion.setAttribute("fecha", fecha);
         Locale paises[] = SimpleDateFormat.getAvailableLocales();
-        ArrayList<Locale> paisesNew = new ArrayList();
+        TreeMap codigos = new TreeMap();
         for (int i = 0; i < paises.length; i++) {
             if (!paises[i].getDisplayCountry().equals("")) {
-                paisesNew.add(paises[i]);
+                codigos.put(paises[i].getLanguage()+"_"+paises[i].getCountry(), paises[i].getDisplayCountry());                
             }
-        }
-        sesion.setAttribute("paises", paisesNew);
+        }    
+        sesion.setAttribute("paises", codigos);
         request.getRequestDispatcher("el/internalizacion/internalizacion.jsp").forward(request, response);
     }
 

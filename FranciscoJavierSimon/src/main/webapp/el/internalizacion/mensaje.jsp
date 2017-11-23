@@ -15,17 +15,21 @@
     </head>
     <body>
         <c:set var="paises" scope="session" value="${paises}"/>
-
-        <c:set var="nombre" value="${fn:split(param.pais,'/')}"/>
-        <fmt:setLocale value="${nombre[0]}"/>
-        <fmt:setBundle basename="${nombre[0]}" var="bundle"/>
+        <c:set var="codigo" value="${param.pais}"/>
+        <fmt:setLocale value="${param.pais}"/>
+        <fmt:setBundle basename="${param.pais}" var="cas" scope="session"/>
+        <c:forEach var="valor" items="${paises}" >
+            <c:if test="${valor.key == codigo}">
+                <c:set var="nombre" value="${valor.value}"/>
+            </c:if>
+        </c:forEach>
         <c:choose>
-            <c:when test="${bundle} != null">
+            <c:when test="${cas != null}">
                 <p>Hola : <fmt:message key = "hola"/></p>
                 <p>Adios : <fmt:message key = "adios"/></p>  
             </c:when>
             <c:otherwise>
-                <p>No se ha encontrado traducción para <c:out value="${nombre[1]}"/></p>
+                <p>No se ha encontrado traducción para <c:out value="${nombre}"/></p>
             </c:otherwise>
         </c:choose>
         <c:set var="fecha" scope="request" value="${fecha}"/>
@@ -34,7 +38,10 @@
         <p>FormatNumber Currency: <fmt:formatNumber value = "${balance}" type = "currency"/></p>
         <p>FormatNumber 2 dígitos : <fmt:formatNumber type = "number" maxFractionDigits = "2" value = "${balance}" /></p>
         <p>FormatNumber : <fmt:formatNumber type = "number" groupingUsed = "false" value = "${balance}" /></p>
-
+        <jsp:scriptlet>
+            HttpSession sesion = request.getSession();
+            sesion.invalidate();
+        </jsp:scriptlet>
         <a href="${pageContext.request.contextPath}">Menú inicial</a>
     </body>
 </html>

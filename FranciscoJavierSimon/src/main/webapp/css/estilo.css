@@ -15,7 +15,7 @@ a{text-decoration: none}
 a{font-size:20px}
 #servlet {margin-left:10%; width:33%; float:left}
 #servlet h2 {margin-left: 10%}
-#jsp {width:33%; float:left}
+#jsp {width:33%; float:left; min-height: 80vh}
 #jsp h2 {margin-left: 10%}
 em {color:red}
 
