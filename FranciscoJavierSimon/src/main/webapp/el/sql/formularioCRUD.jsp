@@ -58,12 +58,15 @@
                         <td>Nombre</td>
                         <td>Direccion</td>
                     </tr>
+                    <c:forEach items="${result.rows}" var="clientesLista">
+                        <tr>
+                            <td>${clientesLista.nombre}</td>
+                            <td>${clientesLista.direccion}</td>
+                        </tr>
+                    </c:forEach>
+
                     <tr>
-                        <td>Cliente$1</td>
-                        <td>Dirección$1</td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" onclick="location.href='datosCRUD.jsp';" value="Continuar" /></td>
+                        <td><input type="button" onclick="location.href = 'datosCRUD.jsp';" value="Continuar" /></td>
                     </tr>
                 </table>
 
@@ -78,7 +81,7 @@
                             <td></td>
                             <td>Cliente</td>
                         </tr>
-                        <c:forEach var="clientes" items="${result}">
+                        <c:forEach var="clientes" items="${result.rows}">
                             <tr>
                                 <td><input type="radio" name="updateCliente" value="${clientes.codigo}"/></td>
                                 <td><c:out value="${clientes.nombre}"/></td>
@@ -96,18 +99,22 @@
             </c:when>
             <c:when test="${opcion == 4}">
                 <form action="datosCRUD.jsp" method="post">
-                    <table>
+                      <table>
                         <tr>
-                            <th colspan="2">Eliminar clientes</th>
+                            <th colspan="2">Eliminar cliente</th>
                         </tr>
                         <tr>
                             <td></td>
                             <td>Cliente</td>
                         </tr>
-                        <tr>
-                            <td><input type="checkbox" name="deleteCliente" value="claveCliente"/></td>
-                            <td>Cliente$1</td>
-                        </tr>
+                        <c:forEach var="clientes" items="${result.rows}">
+                            <tr>
+                                <td><input type="checkbox" name="eliminar" value="${clientes.codigo}"/></td>
+                                <td><c:out value="${clientes.nombre} ${clientes.apellidos}"/></td>
+                            </tr>
+
+                        </c:forEach>
+
                         <tr>
                             <td><input type="submit" name="enviar" value="Enviar"/></td>
                             <td><input type="reset" name="limpiar" value="Limpiar"/></td>

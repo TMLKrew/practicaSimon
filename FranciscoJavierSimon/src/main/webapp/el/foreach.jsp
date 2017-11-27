@@ -10,10 +10,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+
+        <style>
+            li {
+                list-style: none;
+            }
+            #par{
+                background: blue;
+                color:white;
+            }
+            #impar{
+                background: #333;
+            }
+        </style>
     </head>
     <body>
         <h1>For Each</h1>
-        <jsp:useBean class="bean.Listado" id="lista"></jsp:useBean>
+        <jsp:useBean class="es.albarregas.bean.Listado" id="lista"></jsp:useBean>
         <c:forEach var="list" items="${lista.listado}">        
             <c:out value="${list}"></c:out>
         </c:forEach>
@@ -34,17 +47,7 @@
         </c:forEach>
         <br>
         <a href="${pageContext.request.contextPath}">Menú inicial</a>
+
     </body>
-    <style>
-        li {
-            list-style: none;
-        }
-        #par{
-            background: blue;
-            color:white;
-        }
-        #impar{
-            background: #333;
-        }
-    </style>
+
 </html>
